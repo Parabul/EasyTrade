@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 
 import com.anarbek.shop.dao.domain.entity.Customer;
 import com.anarbek.shop.dao.domain.entity.ShopUser;
-import com.anarbek.shop.dao.domain.jooq.Tables;
-import com.anarbek.shop.dao.domain.jooq.tables.records.CustomerRecord;
+import com.anarbek.shop.dao.jooq.Tables;
+import com.anarbek.shop.dao.jooq.tables.records.CustomerRecord;
 import com.anarbek.shop.dao.repository.CustomerRepository;
 import com.anarbek.shop.dao.repository.UserRepository;
 

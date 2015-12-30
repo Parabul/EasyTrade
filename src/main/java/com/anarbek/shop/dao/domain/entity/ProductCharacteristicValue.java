@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class CharacteristicValue {
+public class ProductCharacteristicValue {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class CharacteristicValue {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CHARACTERISTIC_ID")
-	private Characteristic characteristic;
+	private ProductCharacteristic characteristic;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PRODUCT_ID")
@@ -42,11 +42,11 @@ public class CharacteristicValue {
 		this.id = id;
 	}
 
-	public Characteristic getCharacteristic() {
+	public ProductCharacteristic getCharacteristic() {
 		return characteristic;
 	}
 
-	public void setCharacteristic(Characteristic characteristic) {
+	public void setCharacteristic(ProductCharacteristic characteristic) {
 		this.characteristic = characteristic;
 	}
 
@@ -103,7 +103,7 @@ public class CharacteristicValue {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CharacteristicValue other = (CharacteristicValue) obj;
+		ProductCharacteristicValue other = (ProductCharacteristicValue) obj;
 		if (dateValue == null) {
 			if (other.dateValue != null)
 				return false;

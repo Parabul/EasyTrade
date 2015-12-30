@@ -11,10 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.anarbek.shop.dao.domain.types.CharacteristicType;
+import com.anarbek.shop.dao.domain.types.ProductCharacteristicType;
 
 @Entity
-public class Characteristic {
+public class ProductCharacteristic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +31,7 @@ public class Characteristic {
 	private Measurement measurement;
 
 	@Enumerated(EnumType.STRING)
-	private CharacteristicType characteristicType;
+	private ProductCharacteristicType characteristicType;
 
 	public long getId() {
 		return id;
@@ -65,11 +65,11 @@ public class Characteristic {
 		this.measurement = measurement;
 	}
 
-	public CharacteristicType getCharacteristicType() {
+	public ProductCharacteristicType getCharacteristicType() {
 		return characteristicType;
 	}
 
-	public void setCharacteristicType(CharacteristicType characteristicType) {
+	public void setCharacteristicType(ProductCharacteristicType characteristicType) {
 		this.characteristicType = characteristicType;
 	}
 
@@ -93,7 +93,7 @@ public class Characteristic {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Characteristic other = (Characteristic) obj;
+		ProductCharacteristic other = (ProductCharacteristic) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;

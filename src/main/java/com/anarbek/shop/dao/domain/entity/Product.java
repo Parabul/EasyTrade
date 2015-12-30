@@ -25,7 +25,7 @@ public class Product {
 	private double price;
 
 	@OneToMany(mappedBy = "product")
-	private List<CharacteristicValue> characteristicValues;
+	private List<ProductCharacteristicValue> characteristicValues;
 	
 	@OneToMany(mappedBy = "product")
 	private List<Image> images;
@@ -62,11 +62,11 @@ public class Product {
 		this.price = price;
 	}
 
-	public List<CharacteristicValue> getCharacteristicValues() {
+	public List<ProductCharacteristicValue> getCharacteristicValues() {
 		return characteristicValues;
 	}
 
-	public void setCharacteristicValues(List<CharacteristicValue> characteristicValues) {
+	public void setCharacteristicValues(List<ProductCharacteristicValue> characteristicValues) {
 		this.characteristicValues = characteristicValues;
 	}
 
