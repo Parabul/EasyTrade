@@ -88,8 +88,46 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>			
-		</plugins>		
+			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.jooq</groupId> -->
+<!-- 				<artifactId>jooq-codegen-maven</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>generate</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<dependencies> -->
+<!-- 					<dependency> -->
+<!-- 						<groupId>org.postgresql</groupId> -->
+<!-- 						<artifactId>postgresql</artifactId> -->
+<!-- 						<version>9.2-1003-jdbc4</version> -->
+<!-- 					</dependency> -->
+<!-- 				</dependencies> -->
+<!-- 				<configuration> -->
+<!-- 					<jdbc> -->
+<!-- 						<driver>org.postgresql.Driver</driver> -->
+<!-- 						<url>jdbc:postgresql://localhost:5433/shop</url> -->
+<!-- 						<user>postgres</user> -->
+<!-- 						<password>232323</password> -->
+<!-- 					</jdbc> -->
+<!-- 					<generator> -->
+<!-- 						<database> -->
+<!-- 							<name>org.jooq.util.postgres.PostgresDatabase</name> -->
+<!-- 							<includes>.*</includes> -->
+<!-- 							<excludes></excludes> -->
+<!-- 							<inputSchema>public</inputSchema> -->
+<!-- 						</database> -->
+<!-- 						<target> -->
+<!-- 							<packageName>com.anarbek.shop.dao.domain.jooq</packageName> -->
+<!-- 							<directory>target/generated-sources/jooq</directory> -->
+<!-- 						</target> -->
+<!-- 					</generator> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+		</plugins>
 	</build>
 
 

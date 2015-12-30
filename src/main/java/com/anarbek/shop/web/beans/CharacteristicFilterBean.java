@@ -2,18 +2,18 @@ package com.anarbek.shop.web.beans;
 
 import java.util.List;
 
-import com.anarbek.shop.dao.domain.entity.СharacteristicValue;
+import com.anarbek.shop.dao.domain.entity.CharacteristicValue;
 
 public class CharacteristicFilterBean {
 
-	private List<СharacteristicValue> сharacteristicValues;
+	private List<CharacteristicValue> characteristicValues;
 
-	public List<СharacteristicValue> getСharacteristicValues() {
-		return сharacteristicValues;
+	public List<CharacteristicValue> getCharacteristicValues() {
+		return characteristicValues;
 	}
 
-	public void setСharacteristicValues(List<СharacteristicValue> сharacteristicValues) {
-		this.сharacteristicValues = сharacteristicValues;
+	public void setCharacteristicValues(List<CharacteristicValue> characteristicValues) {
+		this.characteristicValues = characteristicValues;
 	}
 
 }

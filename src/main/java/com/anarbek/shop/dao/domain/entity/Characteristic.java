@@ -1,16 +1,20 @@
 package com.anarbek.shop.dao.domain.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.anarbek.shop.dao.domain.types.CharacteristicType;
 
 @Entity
-public class Product {
+public class Characteristic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,13 +26,12 @@ public class Product {
 	@Column(length = 4000)
 	private String description;
 
-	private double price;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "MEASUREMENT_ID")
+	private Measurement measurement;
 
-	@OneToMany(mappedBy = "product")
-	private List<CharacteristicValue> characteristicValues;
-	
-	@OneToMany(mappedBy = "product")
-	private List<Image> images;
+	@Enumerated(EnumType.STRING)
+	private CharacteristicType characteristicType;
 
 	public long getId() {
 		return id;
@@ -54,28 +57,20 @@ public class Product {
 		this.description = description;
 	}
 
-	public double getPrice() {
-		return price;
+	public Measurement getMeasurement() {
+		return measurement;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setMeasurement(Measurement measurement) {
+		this.measurement = measurement;
 	}
 
-	public List<CharacteristicValue> getCharacteristicValues() {
-		return characteristicValues;
+	public CharacteristicType getCharacteristicType() {
+		return characteristicType;
 	}
 
-	public void setCharacteristicValues(List<CharacteristicValue> characteristicValues) {
-		this.characteristicValues = characteristicValues;
-	}
-
-	public List<Image> getImages() {
-		return images;
-	}
-
-	public void setImages(List<Image> images) {
-		this.images = images;
+	public void setCharacteristicType(CharacteristicType characteristicType) {
+		this.characteristicType = characteristicType;
 	}
 
 	@Override
@@ -84,12 +79,9 @@ public class Product {
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((images == null) ? 0 : images.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(price);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((measurement == null) ? 0 : measurement.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + ((characteristicValues == null) ? 0 : characteristicValues.hashCode());
+		result = prime * result + ((characteristicType == null) ? 0 : characteristicType.hashCode());
 		return result;
 	}
 
@@ -101,7 +93,7 @@ public class Product {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		Characteristic other = (Characteristic) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -109,25 +101,19 @@ public class Product {
 			return false;
 		if (id != other.id)
 			return false;
-		if (images == null) {
-			if (other.images != null)
+		if (measurement == null) {
+			if (other.measurement != null)
 				return false;
-		} else if (!images.equals(other.images))
-			return false;
-		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+		} else if (!measurement.equals(other.measurement))
 			return false;
 		if (title == null) {
 			if (other.title != null)
 				return false;
 		} else if (!title.equals(other.title))
 			return false;
-		if (characteristicValues == null) {
-			if (other.characteristicValues != null)
-				return false;
-		} else if (!characteristicValues.equals(other.characteristicValues))
+		if (characteristicType != other.characteristicType)
 			return false;
 		return true;
 	}
-	
-	
+
 }
