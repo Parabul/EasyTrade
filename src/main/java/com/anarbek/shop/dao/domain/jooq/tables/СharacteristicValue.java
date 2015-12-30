@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class СharacteristicValue extends TableImpl<СharacteristicValueRecord> {
 
-	private static final long serialVersionUID = -1979973283;
+	private static final long serialVersionUID = 1528313187;
 
 	/**
 	 * The reference instance of <code>public.сharacteristic_value</code>
@@ -123,7 +123,7 @@ public class СharacteristicValue extends TableImpl<СharacteristicValueRecord> 
 	 */
 	@Override
 	public List<ForeignKey<СharacteristicValueRecord, ?>> getReferences() {
-		return Arrays.<ForeignKey<СharacteristicValueRecord, ?>>asList(Keys.СHARACTERISTIC_VALUE__FK_5M69FGPVRA88QX0PN9013EU8R, Keys.СHARACTERISTIC_VALUE__FK_ISHXS45F8NNOLC8KCP097QGVG);
+		return Arrays.<ForeignKey<СharacteristicValueRecord, ?>>asList(Keys.СHARACTERISTIC_VALUE__FK_ISHXS45F8NNOLC8KCP097QGVG);
 	}
 
 	/**

@@ -4,6 +4,8 @@
 package com.anarbek.shop.dao.domain.jooq;
 
 
+import com.anarbek.shop.dao.domain.jooq.tables.Characteristic;
+import com.anarbek.shop.dao.domain.jooq.tables.CharacteristicValue;
 import com.anarbek.shop.dao.domain.jooq.tables.Customer;
 import com.anarbek.shop.dao.domain.jooq.tables.Image;
 import com.anarbek.shop.dao.domain.jooq.tables.Measurement;
@@ -37,7 +39,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-	private static final long serialVersionUID = 1571766980;
+	private static final long serialVersionUID = 1359828814;
 
 	/**
 	 * The reference instance of <code>public</code>
@@ -72,6 +74,8 @@ public class Public extends SchemaImpl {
 
 	private final List<Table<?>> getTables0() {
 		return Arrays.<Table<?>>asList(
+			Characteristic.CHARACTERISTIC,
+			CharacteristicValue.CHARACTERISTIC_VALUE,
 			Customer.CUSTOMER,
 			Image.IMAGE,
 			Measurement.MEASUREMENT,

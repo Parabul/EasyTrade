@@ -4,12 +4,16 @@
 package com.anarbek.shop.dao.domain.jooq;
 
 
+import com.anarbek.shop.dao.domain.jooq.tables.Characteristic;
+import com.anarbek.shop.dao.domain.jooq.tables.CharacteristicValue;
 import com.anarbek.shop.dao.domain.jooq.tables.Customer;
 import com.anarbek.shop.dao.domain.jooq.tables.Image;
 import com.anarbek.shop.dao.domain.jooq.tables.Measurement;
 import com.anarbek.shop.dao.domain.jooq.tables.Product;
 import com.anarbek.shop.dao.domain.jooq.tables.ShopUser;
 import com.anarbek.shop.dao.domain.jooq.tables.ShopUserRoles;
+import com.anarbek.shop.dao.domain.jooq.tables.records.CharacteristicRecord;
+import com.anarbek.shop.dao.domain.jooq.tables.records.CharacteristicValueRecord;
 import com.anarbek.shop.dao.domain.jooq.tables.records.CustomerRecord;
 import com.anarbek.shop.dao.domain.jooq.tables.records.ImageRecord;
 import com.anarbek.shop.dao.domain.jooq.tables.records.MeasurementRecord;
@@ -51,6 +55,8 @@ public class Keys {
 	// UNIQUE and PRIMARY KEY definitions
 	// -------------------------------------------------------------------------
 
+	public static final UniqueKey<CharacteristicRecord> CHARACTERISTIC_PKEY = UniqueKeys0.CHARACTERISTIC_PKEY;
+	public static final UniqueKey<CharacteristicValueRecord> CHARACTERISTIC_VALUE_PKEY = UniqueKeys0.CHARACTERISTIC_VALUE_PKEY;
 	public static final UniqueKey<CustomerRecord> CUSTOMER_PKEY = UniqueKeys0.CUSTOMER_PKEY;
 	public static final UniqueKey<ImageRecord> IMAGE_PKEY = UniqueKeys0.IMAGE_PKEY;
 	public static final UniqueKey<MeasurementRecord> MEASUREMENT_PKEY = UniqueKeys0.MEASUREMENT_PKEY;
@@ -64,10 +70,11 @@ public class Keys {
 	// FOREIGN KEY definitions
 	// -------------------------------------------------------------------------
 
+	public static final ForeignKey<CharacteristicRecord, MeasurementRecord> CHARACTERISTIC__FK_NNSCUVJNXX4K3LEQ8XV03E7V3 = ForeignKeys0.CHARACTERISTIC__FK_NNSCUVJNXX4K3LEQ8XV03E7V3;
+	public static final ForeignKey<CharacteristicValueRecord, CharacteristicRecord> CHARACTERISTIC_VALUE__FK_JX672GO7SRNA7S8WJWNYKCLS9 = ForeignKeys0.CHARACTERISTIC_VALUE__FK_JX672GO7SRNA7S8WJWNYKCLS9;
+	public static final ForeignKey<CharacteristicValueRecord, ProductRecord> CHARACTERISTIC_VALUE__FK_8RVXP5IF9WE3HNY0G41CQFVFN = ForeignKeys0.CHARACTERISTIC_VALUE__FK_8RVXP5IF9WE3HNY0G41CQFVFN;
 	public static final ForeignKey<ImageRecord, ProductRecord> IMAGE__FK_MM4CMVTEO84WQ24UPFVUCDY08 = ForeignKeys0.IMAGE__FK_MM4CMVTEO84WQ24UPFVUCDY08;
 	public static final ForeignKey<ShopUserRolesRecord, ShopUserRecord> SHOP_USER_ROLES__FK_EV613963MJ936X1J1O2FQFXC8 = ForeignKeys0.SHOP_USER_ROLES__FK_EV613963MJ936X1J1O2FQFXC8;
-	public static final ForeignKey<СharacteristicRecord, MeasurementRecord> СHARACTERISTIC__FK_HOXPT39HV4OE3FQLVQR2HM0IF = ForeignKeys0.СHARACTERISTIC__FK_HOXPT39HV4OE3FQLVQR2HM0IF;
-	public static final ForeignKey<СharacteristicValueRecord, ProductRecord> СHARACTERISTIC_VALUE__FK_5M69FGPVRA88QX0PN9013EU8R = ForeignKeys0.СHARACTERISTIC_VALUE__FK_5M69FGPVRA88QX0PN9013EU8R;
 	public static final ForeignKey<СharacteristicValueRecord, СharacteristicRecord> СHARACTERISTIC_VALUE__FK_ISHXS45F8NNOLC8KCP097QGVG = ForeignKeys0.СHARACTERISTIC_VALUE__FK_ISHXS45F8NNOLC8KCP097QGVG;
 
 	// -------------------------------------------------------------------------
@@ -75,6 +82,8 @@ public class Keys {
 	// -------------------------------------------------------------------------
 
 	private static class UniqueKeys0 extends AbstractKeys {
+		public static final UniqueKey<CharacteristicRecord> CHARACTERISTIC_PKEY = createUniqueKey(Characteristic.CHARACTERISTIC, Characteristic.CHARACTERISTIC.ID);
+		public static final UniqueKey<CharacteristicValueRecord> CHARACTERISTIC_VALUE_PKEY = createUniqueKey(CharacteristicValue.CHARACTERISTIC_VALUE, CharacteristicValue.CHARACTERISTIC_VALUE.ID);
 		public static final UniqueKey<CustomerRecord> CUSTOMER_PKEY = createUniqueKey(Customer.CUSTOMER, Customer.CUSTOMER.ID);
 		public static final UniqueKey<ImageRecord> IMAGE_PKEY = createUniqueKey(Image.IMAGE, Image.IMAGE.ID);
 		public static final UniqueKey<MeasurementRecord> MEASUREMENT_PKEY = createUniqueKey(Measurement.MEASUREMENT, Measurement.MEASUREMENT.ID);
@@ -86,10 +95,11 @@ public class Keys {
 	}
 
 	private static class ForeignKeys0 extends AbstractKeys {
+		public static final ForeignKey<CharacteristicRecord, MeasurementRecord> CHARACTERISTIC__FK_NNSCUVJNXX4K3LEQ8XV03E7V3 = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.MEASUREMENT_PKEY, Characteristic.CHARACTERISTIC, Characteristic.CHARACTERISTIC.MEASUREMENT_ID);
+		public static final ForeignKey<CharacteristicValueRecord, CharacteristicRecord> CHARACTERISTIC_VALUE__FK_JX672GO7SRNA7S8WJWNYKCLS9 = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.CHARACTERISTIC_PKEY, CharacteristicValue.CHARACTERISTIC_VALUE, CharacteristicValue.CHARACTERISTIC_VALUE.CHARACTERISTIC_ID);
+		public static final ForeignKey<CharacteristicValueRecord, ProductRecord> CHARACTERISTIC_VALUE__FK_8RVXP5IF9WE3HNY0G41CQFVFN = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.PRODUCT_PKEY, CharacteristicValue.CHARACTERISTIC_VALUE, CharacteristicValue.CHARACTERISTIC_VALUE.PRODUCT_ID);
 		public static final ForeignKey<ImageRecord, ProductRecord> IMAGE__FK_MM4CMVTEO84WQ24UPFVUCDY08 = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.PRODUCT_PKEY, Image.IMAGE, Image.IMAGE.PRODUCT_ID);
 		public static final ForeignKey<ShopUserRolesRecord, ShopUserRecord> SHOP_USER_ROLES__FK_EV613963MJ936X1J1O2FQFXC8 = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.SHOP_USER_PKEY, ShopUserRoles.SHOP_USER_ROLES, ShopUserRoles.SHOP_USER_ROLES.SHOP_USER_ID);
-		public static final ForeignKey<СharacteristicRecord, MeasurementRecord> СHARACTERISTIC__FK_HOXPT39HV4OE3FQLVQR2HM0IF = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.MEASUREMENT_PKEY, Сharacteristic.СHARACTERISTIC, Сharacteristic.СHARACTERISTIC.MEASUREMENT_ID);
-		public static final ForeignKey<СharacteristicValueRecord, ProductRecord> СHARACTERISTIC_VALUE__FK_5M69FGPVRA88QX0PN9013EU8R = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.PRODUCT_PKEY, СharacteristicValue.СHARACTERISTIC_VALUE, СharacteristicValue.СHARACTERISTIC_VALUE.PRODUCT_ID);
 		public static final ForeignKey<СharacteristicValueRecord, СharacteristicRecord> СHARACTERISTIC_VALUE__FK_ISHXS45F8NNOLC8KCP097QGVG = createForeignKey(com.anarbek.shop.dao.domain.jooq.Keys.СHARACTERISTIC_PKEY, СharacteristicValue.СHARACTERISTIC_VALUE, СharacteristicValue.СHARACTERISTIC_VALUE.СHARACTERISTIC_ID);
 	}
 }

@@ -4,6 +4,8 @@
 package com.anarbek.shop.dao.domain.jooq;
 
 
+import com.anarbek.shop.dao.domain.jooq.tables.Characteristic;
+import com.anarbek.shop.dao.domain.jooq.tables.CharacteristicValue;
 import com.anarbek.shop.dao.domain.jooq.tables.Customer;
 import com.anarbek.shop.dao.domain.jooq.tables.Image;
 import com.anarbek.shop.dao.domain.jooq.tables.Measurement;
@@ -28,6 +30,16 @@ import javax.annotation.Generated;
 )
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+	/**
+	 * The table public.characteristic
+	 */
+	public static final Characteristic CHARACTERISTIC = com.anarbek.shop.dao.domain.jooq.tables.Characteristic.CHARACTERISTIC;
+
+	/**
+	 * The table public.characteristic_value
+	 */
+	public static final CharacteristicValue CHARACTERISTIC_VALUE = com.anarbek.shop.dao.domain.jooq.tables.CharacteristicValue.CHARACTERISTIC_VALUE;
 
 	/**
 	 * The table public.customer

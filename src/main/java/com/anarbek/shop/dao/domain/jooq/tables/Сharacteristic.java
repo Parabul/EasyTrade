@@ -14,7 +14,6 @@ import java.util.List;
 import javax.annotation.Generated;
 
 import org.jooq.Field;
-import org.jooq.ForeignKey;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
@@ -34,7 +33,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Сharacteristic extends TableImpl<СharacteristicRecord> {
 
-	private static final long serialVersionUID = -1508829530;
+	private static final long serialVersionUID = 1117368048;
 
 	/**
 	 * The reference instance of <code>public.сharacteristic</code>
@@ -110,14 +109,6 @@ public class Сharacteristic extends TableImpl<СharacteristicRecord> {
 	@Override
 	public List<UniqueKey<СharacteristicRecord>> getKeys() {
 		return Arrays.<UniqueKey<СharacteristicRecord>>asList(Keys.СHARACTERISTIC_PKEY);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public List<ForeignKey<СharacteristicRecord, ?>> getReferences() {
-		return Arrays.<ForeignKey<СharacteristicRecord, ?>>asList(Keys.СHARACTERISTIC__FK_HOXPT39HV4OE3FQLVQR2HM0IF);
 	}
 
 	/**
